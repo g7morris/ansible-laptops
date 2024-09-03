@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `setup_git_project.sh` script is used to initialize a fresh Ansible project structure. It is intended for one-time use by the repository owner or by contributors who want to understand and build the project from scratch instead of using the ansible-laptops-setup project.
+The `setup_git_project.sh` script is used to initialize a fresh Ansible project structure. It is intended for one-time use by the repository owner or by contributors who want to understand and build the project from scratch instead of using the ansible-laptops project.
 
 ## Usage
 

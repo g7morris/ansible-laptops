@@ -1,4 +1,4 @@
-# Ansible Laptops Setup
+# Ansible Laptops
 
 ## Overview
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Prompt for the Ansible git project name
-# e.g. ansible-laptops-setup
+# e.g. ansible-laptops
 read -p "Enter the new project name: " project_name
 
 # Prompt for the Ansible git project directory location

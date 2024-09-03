@@ -1,4 +1,4 @@
-# Software Installed by Ansible Laptops Setup
+# Software Installed by Ansible Laptops
 
 This document provides a comprehensive list of all the software that gets installed by the Ansible playbook in this repository. The software is categorized based on whether it's installed on macOS, Ubuntu, or both.
 
