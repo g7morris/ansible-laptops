@@ -1,0 +1,27 @@
+# The requirements.yml file should be processed before running your playbooks to 
+# "install" all the Ansible Galaxy / community based Ansible roles as specified in the requirements.yml file. 
+# This ensures that all necessary roles are available in your roles/ directory when the playbook is executed.
+# This means "download" the Ansible code (roles) within this project structure NOT install to the laptop.
+# After the roles are installed, you can then run your Ansible playbook as usual.
+# Example command: ansible-galaxy install -r requirements.yml --role-path ./roles/
+
+# This file defines the Ansible Galaxy roles required for the ansible-laptops setup.
+# Community-maintained roles are used to manage the installation of software to the laptop as defined below.
+# Be in the habit of checking version numbers below as they will change over time.
+
+- src: geerlingguy.git
+  version: 1.6.0
+
+- src: geerlingguy.homebrew
+  version: 3.1.0
+  when: ansible_os_family == 'Darwin'
+
+- src: geerlingguy.docker
+  version: 3.1.0
+  when: ansible_os_family == 'Debian'
+
+- src: geerlingguy.aws
+  version: 1.5.0
+
+- src: geerlingguy.terraform
+  version: 1.4.0
