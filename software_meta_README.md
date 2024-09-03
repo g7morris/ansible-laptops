@@ -15,15 +15,27 @@ In some cases, I've differed to using community maintained and defined Ansible G
 ## Shared / common software (_Installed on both macOS and Ubuntu_)
 
 - Ansible
+- AWS CLI
 - Git
 - Google Chrome
-- Python3
-- Visual Studio Code
-- VLC Media Player
-- ZSH
 - Oh My Zsh (with Powerline font)
-- AWS CLI
+- Python3
+- Signal
 - Terraform
+- Visual Studio Code with extensions / plugins
+  - github.copilot
+  - github.copilot-chat
+  - ms-azuretools.vscode-docker
+  - ms-vscode-remote.remote-containers
+  - ms-vscode-remote.vscode-remote-extensionpack
+  - ms-vscode.remote-server
+  - shd101wyy.markdown-preview-enhanced
+  - tomoki1207.pdf
+  - ue.alphabetical-sorter
+  - yzane.markdown-pdf
+  - yzhang.markdown-all-in-one
+- VLC Media Player
+- Zsh
 
 ## macOS-Specific Software
 
