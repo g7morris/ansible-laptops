@@ -41,6 +41,11 @@ install_macos() {
         echo "Homebrew not found. Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo "Homebrew installed successfully."
+
+        # Add Homebrew to PATH for current and future shell sessions
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        echo "Homebrew added to PATH."
     else
         echo "Homebrew is already installed."
     fi
