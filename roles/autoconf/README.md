@@ -35,17 +35,8 @@ From [https://www.gnu.org/software/autoconf/](https://www.gnu.org/software/autoc
 Testing the Role
 ----------------
 
-* From the project root, navigate to the tests directory
-
-```sh
-cd roles/autoconf/tests
-```
-
-* Run the test script
-
-```sh
-./test_autoconf.sh
-```
+* Open up this project in a terminal and from the project root run the following: `ansible-playbook -i roles/autoconf/tests/inventory roles/autoconf/tests/test.yml --ask-become-pass`
+  * enter your sudo password
 
 * Positive test / outcome should look something like:
 
