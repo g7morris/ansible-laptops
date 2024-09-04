@@ -1,0 +1,17 @@
+---
+# tasks file for roles/autoconf
+
+- name: Install autoconf on Linux
+  apt:
+    name: autoconf
+    state: present
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+  become: yes
+
+- name: Install autoconf on macOS
+  community.general.homebrew:
+    name: autoconf
+    state: present
+    update_homebrew: true
+  when: ansible_os_family == 'Darwin'
+  become: no

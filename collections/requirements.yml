@@ -9,19 +9,7 @@
 # Community-maintained roles are used to manage the installation of software to the laptop as defined below.
 # Be in the habit of checking version numbers below as they will change over time.
 
-- src: geerlingguy.git
-  version: 1.6.0
-
-- src: geerlingguy.homebrew
-  version: 3.1.0
-  when: ansible_os_family == 'Darwin'
-
-- src: geerlingguy.docker
-  version: 3.1.0
-  when: ansible_os_family == 'Debian'
-
-- src: geerlingguy.aws
-  version: 1.5.0
-
-- src: geerlingguy.terraform
-  version: 1.4.0
+# ansible-galaxy collection install -r requirements.yml
+collections:
+  - name: community.general
+    version: ">=3.0.0"

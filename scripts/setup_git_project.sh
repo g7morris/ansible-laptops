@@ -31,10 +31,10 @@ mkdir -p files
 mkdir -p handlers
 
 # Initialize Roles using ansible-galaxy
-echo "Initializing example roles using ansible-galaxy, edit and refine as needed"
-ansible-galaxy init roles/shared
-ansible-galaxy init roles/macos-only
-ansible-galaxy init roles/ubuntu-only
+echo "Initializing three example roles using ansible-galaxy, edit and refine as needed"
+ansible-galaxy init roles/role1
+ansible-galaxy init roles/role2
+ansible-galaxy init roles/role3
 
 # Create a playbook
 echo "Creating a playbook at playbooks/setup.yml..."

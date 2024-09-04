@@ -1,0 +1,8 @@
+---
+# defaults file for roles/autoconf
+
+# Override global variables if needed otherwise use the default values typically latest
+# Overide example - Remove "{{ version }}" & add the package version so it looks like this: version: "1.2.3"
+version: "{{ version }}" 
+linux_install_path: "{{ linux_install_path }}"
+macos_install_path: "{{ macos_install_path }}"
