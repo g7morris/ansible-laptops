@@ -15,7 +15,7 @@ git clone https://github.com/g7morris/ansible-laptops.git
 cd ansible-laptops
 ```
 
-2. Run the Dependency Installation Script
+### 2. Run the Dependency Installation Script
 
 Before you can run the Ansible playbooks, you need to ensure that all necessary dependencies are installed on your system. This script will detect your operating system (macOS or Ubuntu) and install the required dependencies, such as Homebrew on macOS or APT packages on Ubuntu.
 
@@ -26,13 +26,13 @@ chmod +x scripts/install_dependencies.sh
 ./scripts/install_dependencies.sh
 ```
 
-3. Install the required Ansible roles
+### 3. Install the required Ansible roles
 
 ```bash
 ansible-galaxy install -r requirements.yml --role-path ./roles/
 ```
 
-4. Run the Ansible Playbook
+### 4. Run the Ansible Playbook
 
 After installing the dependencies, you can run the Ansible playbook to set up your laptop:
 
