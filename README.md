@@ -4,6 +4,10 @@
 
 This repository automates the installation and configuration of software on both macOS Sonoma and Ubuntu Linux laptops. Utilizing a combination of bash scripts and Ansible playbooks ensures that one's development environment is consistently configured across different operating systems.
 
+All syntax, formatting etc is critiqued by the following in a Github Actions workflow:
+* [ansible-lint](https://github.com/ansible/ansible-lint) - checks playbooks for practices and behavior that could potentially be improved
+* [yamllint](https://github.com/adrienverge/yamllint) - A linter for YAML files.
+
 ## How to Use This Repository
 
 ### 1. Clone the Repository

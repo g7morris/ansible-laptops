@@ -1,6 +1,6 @@
 # Ignore specific Galaxy roles installed by ansible-galaxy
 # Assuming you install roles like geerlingguy.git, geerlingguy.docker, etc.
-roles/geerlingguy.* 
+#roles/geerlingguy.* 
 
 # Ignore Ansible secrets (if using Ansible Vault)
 *.vault
