@@ -23,7 +23,7 @@ cd ansible-laptops
 
 Before you can run the Ansible playbooks, you need to ensure that all necessary dependencies are installed on your system. This script will detect your operating system (macOS or Ubuntu) and install the required dependencies, such as Homebrew on macOS or APT packages on Ubuntu.
 
-Use the provided `install_dependencies.sh` script:
+Use the provided [install_dependencies.sh](scripts/install_dependencies.sh) script:
 
 ```bash
 chmod +x scripts/install_dependencies.sh
@@ -50,7 +50,7 @@ This playbook will apply the appropriate roles to your system based on whether y
 
 ### List of Installed Software
 
-For a detailed list of all the software installed by this repository, please refer to the [software_meta_README.md](software_meta_README.md).
+For a detailed list of all the software installed by this repository, please refer to the [software_meta_README.md](docs/software_meta_README.md).
 
 ---
 

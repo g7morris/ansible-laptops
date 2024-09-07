@@ -63,7 +63,7 @@ install_ubuntu() {
     sudo apt update
 
     # Install Git, Python3, and Ansible
-    sudo apt install -y git python3 python3-pip software-properties-common
+    sudo apt install -y ca-certificates git python3 python3-pip software-properties-common
 
     # Add Ansible PPA and install Ansible
     sudo apt-add-repository --yes --update ppa:ansible/ansible
