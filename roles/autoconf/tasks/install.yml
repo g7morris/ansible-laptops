@@ -7,6 +7,7 @@
     state: present
   when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
   become: yes
+  tags: autoconf
 
 - name: Install autoconf on macOS
   community.general.homebrew:
@@ -15,3 +16,4 @@
     update_homebrew: true
   when: ansible_os_family == 'Darwin'
   become: no
+  tags: autoconf

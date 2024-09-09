@@ -1,0 +1,7 @@
+---
+# tasks file for roles/awscli
+
+- include_tasks: curl.yml
+- include_tasks: download.yml
+- include_tasks: install.yml
+- include_tasks: verify.yml

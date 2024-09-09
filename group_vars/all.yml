@@ -4,3 +4,4 @@
 # Can be fixed to a point release or set to latest but this is for all the role marbles so caution is advised. 
 # Best to leave alone and change within the role's defaults/main.yml
 version: latest
+download_dir: "/tmp"
