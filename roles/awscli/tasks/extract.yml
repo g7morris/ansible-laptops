@@ -1,0 +1,10 @@
+---
+
+- name: Unarchive the AWS CLI zip file on Ubuntu only
+  ansible.builtin.unarchive:
+    src: "{{ download_dir }}/awscliv2.zip"
+    dest: "{{ download_dir }}"
+    remote_src: no
+  ignore_errors: yes
+  become: yes
+  tags: awscli

@@ -1,13 +1,13 @@
 ---
 
 - name: Download AWS CLI package file on macOS
-  command: curl "{{ awscli_url }}" -o "/{{ download_dir }}/{{ awscli_url }}/{{ awscli_pkg }}"
+  command: curl "{{ awscli_url }}/{{ awscli_pkg }}" -o "/{{ download_dir }}/{{ awscli_pkg }}"
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
   tags: awscli
 
 - name: Download AWS CLI zip file on Ubuntu
-  command: curl "{{ awscli_url }}"" -o "/{{ download_dir }}/{{ awscli_url }}/{{ awscli_zip }}""
+  command: curl "{{ awscli_url }}/{{ awscli_zip }}" -o "/{{ download_dir }}/awscliv2.zip"
   ignore_errors: yes
   when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
   become: yes

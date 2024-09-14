@@ -1,0 +1,38 @@
+---
+# tasks file for roles/awscli
+
+- name: Verify AWS CLI on macOS - step 1
+  command: which aws
+  register: awscli_path
+  when: ansible_os_family == 'Darwin'
+  tags: awscli
+
+- debug:
+    var: awscli_path.stdout
+
+- name: Verify AWS CLI on Ubuntu - step 1
+  command: which aws
+  register: awscli_path
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+  tags: awscli
+
+- debug:
+    var: awscli_path.stdout
+
+- name: Verify AWS CLI on macOS - step 2
+  command: aws --version
+  register: awscli_version
+  when: ansible_os_family == 'Darwin'
+  tags: awscli
+
+- debug:
+    var: awscli_version.stdout
+
+- name: Verify AWS CLI on Ubuntu - step 2
+  command: aws --version
+  register: awscli_version
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+  tags: awscli
+
+- debug:
+    var: awscli_version.stdout

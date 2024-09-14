@@ -18,8 +18,6 @@ Role Requirements
 Role Variables
 --------------
 
-- `version`: The version of `autoconf` to install. Default is `latest`.
-
 Dependencies
 ------------
 

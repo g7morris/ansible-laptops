@@ -1,5 +1,6 @@
 ---
 # defaults file for roles/awscli
+
 awscli_pkg: "AWSCLIV2.pkg"
-awscli_zip: "awscliv2.zip"
+awscli_zip: "awscli-exe-linux-x86_64.zip"
 awscli_url: "https://awscli.amazonaws.com/"

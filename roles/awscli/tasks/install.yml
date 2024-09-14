@@ -1,12 +1,14 @@
 ---
 
 - name: Install AWS CLI on macOS
-  command: sudo installer -pkg /{{ download_dir }}/"{{ awscli_url }}" -target /
+  command: sudo installer -pkg "{{ download_dir }}/{{ awscli_pkg }}" -target /
   when: ansible_os_family == 'Darwin'
+  become: yes
   tags: awscli
 
 - name: Install AWS CLI on Ubuntu
-  command: sudo dpkg -i /{{ download_dir }}/"{{ awscli_url }}"
+  command: sudo ./aws/install
+  chdir: "{{ download_dir }}"
   when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
   become: yes
   tags: awscli
