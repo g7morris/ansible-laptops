@@ -1,14 +1,2 @@
 ---
-# vars file for roles/awscli
-
-# Package name for AWS CLI
-awscli_pkg: "AWSCLIV2.pkg"
-
-# Zip file for AWS CLI installation
-awscli_zip: "awscli-exe-linux-x86_64.zip"
-
-# URL for downloading AWS CLI
-awscli_url: "https://awscli.amazonaws.com"
-
-# Installation path for AWS CLI
-awscli_path: "/usr/local/bin/aws"
+# defaults file for roles/awscli
