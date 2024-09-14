@@ -3,7 +3,5 @@
 
 awscli_pkg: "AWSCLIV2.pkg"
 awscli_zip: "awscli-exe-linux-x86_64.zip"
-awscli_url: "https://awscli.amazonaws.com/"
-
-curl_path: /usr/bin/curl
+awscli_url: "https://awscli.amazonaws.com"
 awscli_path: /usr/local/bin/aws

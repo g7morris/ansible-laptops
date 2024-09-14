@@ -23,7 +23,6 @@ Package names.
 Dependencies
 ------------
 
-* curl
 Testing the Role
 ----------------
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Detect the operating system
 OS=$(uname -s)
@@ -51,8 +51,49 @@ install_macos() {
     fi
 
     # Install Git, Python3, and Ansible
-    brew install git python3 ansible
-    echo "Git, Python3, and Ansible installed successfully."
+    brew install git python3 ansible pipx
+    echo "Git, Python3, Pipx and Ansible installed successfully."
+
+    # Add pre-commit using pipx to avoid conflicts
+    pipx install pre-commit
+    pipx ensurepath
+
+    # Add pipx binary directory to PATH in .zshrc if not already present
+    if ! grep -q 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.zshrc"; then
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+    fi
+
+    # Source the .zshrc file to ensure PATH is updated
+    if [ -f "/Users/$(whoami)/.zshrc" ]; then
+        source "/Users/$(whoami)/.zshrc"
+    fi
+
+    # Verify if pre-commit is in PATH
+    if ! command -v pre-commit &> /dev/null; then
+        echo "pre-commit is not in the PATH after installation. Please check your shell configuration."
+        exit 1
+    fi
+    echo "pre-commit installed successfully."
+
+    # Add ansible-dev-tools which includes ansible-lint for pre-commit linting using pipx to avoid conflicts
+    pipx install ansible-dev-tools
+    pipx ensurepath
+    
+    # Source the .zshrc file to ensure PATH is updated
+    if [ -f "/Users/$(whoami)/.zshrc" ]; then
+        source "/Users/$(whoami)/.zshrc"
+    fi
+
+    # Verify if ansible-lint is in PATH
+    if ! command -v ansible-lint &> /dev/null; then
+        echo "ansible-lint is not in the PATH after installation. Please check your shell configuration."
+        exit 1
+    fi
+    echo "ansible-dev-tools installed successfully."
+
+    # Install the pre-commit hooks
+    pre-commit install
+    echo "pre-commit hooks installed successfully."
 }
 
 # Install dependencies on Ubuntu
@@ -63,13 +104,54 @@ install_ubuntu() {
     sudo apt update
 
     # Install Git, Python3, and Ansible
-    sudo apt install -y ca-certificates git python3 python3-pip software-properties-common
+    sudo apt install -y ca-certificates git python3 python3-pip software-properties-common pipx
+    echo "Git, Python3, Pipx and additional dependencies installed successfully."
 
     # Add Ansible PPA and install Ansible
     sudo apt-add-repository --yes --update ppa:ansible/ansible
     sudo apt install -y ansible
+    echo "Ansible installed successfully."
+    
+    # Add pre-commit using pipx to avoid conflicts
+    pipx install pre-commit
+    pipx ensurepath
 
-    echo "Git, Python3, and Ansible installed successfully."
+    # Add pipx binary directory to PATH in .zshrc if not already present
+    if ! grep -q 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.zshrc"; then
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+    fi
+
+    # Source the .zshrc file to ensure PATH is updated
+    if [ -f "/home/$(whoami)/.zshrc" ]; then
+        source "/home/$(whoami)/.zshrc"
+    fi
+
+    # Verify if pre-commit is in PATH
+    if ! command -v pre-commit &> /dev/null; then
+        echo "pre-commit is not in the PATH after installation. Please check your shell configuration."
+        exit 1
+    fi
+    echo "pre-commit installed successfully."
+
+    # Add ansible-dev-tools which includes ansible-lint for pre-commit linting using pipx to avoid conflicts
+    pipx install ansible-dev-tools
+    pipx ensurepath
+    
+    # Source the .zshrc file to ensure PATH is updated
+    if [ -f "/home/$(whoami)/.zshrc" ]; then
+        source "/home/$(whoami)/.zshrc"
+    fi
+
+    # Verify if ansible-lint is in PATH
+    if ! command -v ansible-lint &> /dev/null; then
+        echo "ansible-lint is not in the PATH after installation. Please check your shell configuration."
+        exit 1
+    fi
+    echo "ansible-dev-tools installed successfully."
+
+    # Install the pre-commit hooks
+    pre-commit install
+    echo "pre-commit hooks installed successfully."
 }
 
 # Install dependencies based on detected OS

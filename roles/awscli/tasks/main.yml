@@ -4,7 +4,6 @@
 - include_tasks: check.yml
 
 - block:
-    - include_tasks: curl.yml
     - include_tasks: download.yml
     - include_tasks: extract.yml
       when: ansible_os_family == 'Debian'

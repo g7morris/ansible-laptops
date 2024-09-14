@@ -24,7 +24,7 @@
 - name: Verify AWS CLI on macOS - version
   command: aws --version
   register: awscli_version
-  Debian
+  when: ansible_os_family == 'Darwin'
   tags: awscli
 
 - debug:
