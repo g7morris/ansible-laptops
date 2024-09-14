@@ -55,7 +55,7 @@ _Installed on both macOS and Ubuntu_
 * [yamllint](https://github.com/adrienverge/yamllint)
 * [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 
-## macOS Specific Software 
+## macOS Specific Software
 _Installed only on macOS_
 
 * [Amethyst](https://github.com/ianyh/Amethyst) (_window manager_)
@@ -66,7 +66,7 @@ _Installed only on macOS_
 * [iTerm2](https://iterm2.com/)
 * [Xcode Command Line Tools](https://mac.install.guide/commandlinetools/) - _tools for software developers that run on the command line, in the Terminal application._
 
-## Ubuntu Specific Software 
+## Ubuntu Specific Software
 _Installed only on Ubuntu_
 
 * [build-essential](https://medium.com/@adwalkz/demystifying-development-a-guide-to-build-essential-in-ubuntu-for-seamless-software-compilation-b590b5a298bb)

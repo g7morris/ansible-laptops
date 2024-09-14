@@ -4,7 +4,8 @@
   ansible.builtin.unarchive:
     src: "{{ download_dir }}/awscliv2.zip"
     dest: "{{ download_dir }}"
-    remote_src: no
-  ignore_errors: yes
-  become: yes
-  tags: awscli
+    remote_src: false
+  failed_when: false
+
+  become: true
+  become_method: ansible.builtin.sudo

@@ -1,0 +1,13 @@
+---
+# setup.yml
+
+- name: Setup, install and configure all the things for the laptop
+  hosts: localhost
+  connection: local
+  become: true
+  become_method: ansible.builtin.sudo
+  gather_facts: false
+
+  roles:
+    - autoconf
+    - awscli

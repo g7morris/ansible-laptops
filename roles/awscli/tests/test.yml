@@ -1,10 +1,12 @@
 ---
 - name: Test awscli role
   hosts: localhost
+
   become: true
-  become_method: sudo
-  become_user: root
+  become_method: ansible.builtin.sudo
+
   vars_files:
     - ../../../group_vars/all.yml
+    - ../vars/main.yml
   roles:
     - awscli

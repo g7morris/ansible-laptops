@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v24.9.0
+    hooks:
+      - id: ansible-lint
+        files: \.(yml|yaml)$
+        exclude: |
+          roles/.*/tasks/.*\.yml
+
+  - repo: local
+    hooks:
+      - id: ansible-syntax-check
+        name: Ansible Syntax Check
+        entry: bash -c 'ansible-playbook --syntax-check $(find playbooks -name "*.yml")'
+        language: system
+        files: \.(yml|yaml)$
+        exclude: |
+          roles/.*/tasks/.*\.yml

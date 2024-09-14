@@ -19,7 +19,7 @@ cd "$project_dir/$project_name"
 echo "Initializing this directory as a git repository..."
 git init
 
-# Create the Ansible project structure with the directories for roles, 
+# Create the Ansible project structure with the directories for roles,
 # inventories, playbooks, variables, templates, files, and handlers etc.
 echo "Creating the Ansible project structure..."
 mkdir -p inventory

@@ -30,6 +30,8 @@ chmod +x scripts/install_dependencies.sh
 ./scripts/install_dependencies.sh
 ```
 
+**Warning:** If you use this repo and intend to make changes either for a PR to my repo or your please note this script also installs [ansible-dev-tools](https://ansible.readthedocs.io/projects/dev-tools/) and [pre-commit](https://pre-commit.com/) for ansible syntax checking, linting, yaml cleanup and more.
+
 ### 3. Install the required Ansible roles
 
 ```bash

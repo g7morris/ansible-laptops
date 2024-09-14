@@ -2,13 +2,11 @@
 
 # is awscli installed is installed PRIOR to installing and if yes skip installation
 - name: Check if awscli is already installed?
-  stat: 
+  ansible.builtin.stat:
     path: "{{ awscli_path }}"
   register: awscli_installed
-  ignore_errors: yes
-  tags: awscli
+  failed_when: false
 
 - name: Debug awscli_installed
-  debug:
+  ansible.builtin.debug:
     var: awscli_installed.stat.exists
-  tags: awscli

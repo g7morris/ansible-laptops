@@ -1,15 +1,17 @@
 ---
 
 - name: Install AWS CLI on macOS
-  command: sudo installer -pkg "{{ download_dir }}/{{ awscli_pkg }}" -target /
+  ansible.builtin.command: installer -pkg "{{ download_dir }}"/"{{ awscli_pkg }}" -target /
+  become: true
+  become_method: ansible.builtin.sudo
   when: ansible_os_family == 'Darwin'
-  become: yes
-  tags: awscli
+  changed_when: "'aws' not in ansible_facts.packages"
 
 - name: Install AWS CLI on Ubuntu
-  command: sudo ./aws/install
+  ansible.builtin.command: ./aws/install
   args:
     chdir: "{{ download_dir }}"
+  become: true
+  become_method: ansible.builtin.sudo
   when: ansible_os_family == 'Debian'
-  become: yes
-  tags: awscli
+  changed_when: "'aws' not in ansible_facts.packages"

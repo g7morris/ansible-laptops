@@ -1,18 +1,20 @@
 ---
 
-- name: Debug download_dir variable
-  debug:
-    var: download_dir
-
 - name: Download AWS CLI package file on macOS
-  command: curl "{{ awscli_url }}/{{ awscli_pkg }}" -o "/{{ download_dir }}/{{ awscli_pkg }}"
-  ignore_errors: yes
+  ansible.builtin.get_url:
+    url: '{{ awscli_url }}/{{ awscli_pkg }}'
+    dest: '{{ download_dir }}/{{ awscli_pkg }}'
+    mode: '0660'
+  failed_when: false
   when: ansible_os_family == 'Darwin'
-  tags: awscli
 
 - name: Download AWS CLI zip file on Ubuntu
-  command: curl "{{ awscli_url }}/{{ awscli_zip }}" -o "/{{ download_dir }}/awscliv2.zip"
-  ignore_errors: yes
+  ansible.builtin.get_url:
+    url: '{{ awscli_url }}/{{ awscli_zip }}'
+    dest: '{{ download_dir }}/awscliv2.zip'
+    mode: '0660'
+  failed_when: false
+
+  become: true
+  become_method: ansible.builtin.sudo
   when: ansible_os_family == 'Debian'
-  become: yes
-  tags: awscli

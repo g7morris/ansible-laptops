@@ -1,13 +1,20 @@
 ---
 # tasks file for roles/awscli
 
-- include_tasks: check.yml
+- name: Check if the software is already installed
+  ansible.builtin.include_tasks: check.yml
+  tags: awscli
 
-- block:
-    - include_tasks: curl.yml
-    - include_tasks: download.yml
-    - include_tasks: extract.yml
+- name: Download, extract, install & verify the software
+  when: not awscli_installed.stat.exists
+  tags: awscli
+  block:
+    - name: Download the software
+      ansible.builtin.include_tasks: download.yml
+    - name: If Linux based, unzip archive first
+      ansible.builtin.include_tasks: extract.yml
       when: ansible_os_family == 'Debian'
-    - include_tasks: install.yml
-    - include_tasks: verify.yml
-  when: awscli_installed.stat.exists == false
+    - name: Install the software
+      ansible.builtin.include_tasks: install.yml
+    - name: Verify the install
+      ansible.builtin.include_tasks: verify.yml

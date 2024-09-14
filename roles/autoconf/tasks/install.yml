@@ -7,13 +7,12 @@
     state: present
     update_homebrew: true
   when: ansible_os_family == 'Darwin'
-  become: no
-  tags: autoconf
+  become: false
 
 - name: Install autoconf on Ubuntu
-  apt:
+  ansible.builtin.apt:
     name: autoconf
     state: present
   when: ansible_os_family == 'Debian'
-  become: yes
-  tags: autoconf
+  become: true
+  become_method: ansible.builtin.sudo

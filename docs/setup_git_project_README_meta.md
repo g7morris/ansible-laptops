@@ -25,7 +25,7 @@ Run this script if you are setting up the project for the first time. It creates
 * Copy the `scripts/setup_git_project.sh` file to a new location to create a blank git repo and Ansible project directory with a name of your choice.
 
 * Open up a terminal to the new location and run `./setup_git_project.sh`
-  * It is an interactive script with prompts. 
+  * It is an interactive script with prompts.
 
 * Once named the script will proceed to create the following:
   1.	`files/`: Directory for static files that you might want to copy to the target systems.
@@ -49,6 +49,6 @@ Run this script if you are setting up the project for the first time. It creates
 
 ## Important Notes
 
-This script is optional and is meant for users who want to understand the setup process. 
+This script is optional and is meant for users who want to understand the setup process.
 
-It is not necessary to run this script if the project has already been initialized or cloned. 
+It is not necessary to run this script if the project has already been initialized or cloned.
