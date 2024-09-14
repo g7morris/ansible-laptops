@@ -1,5 +1,9 @@
 ---
 
+- name: Debug download_dir variable
+  debug:
+    var: download_dir
+
 - name: Download AWS CLI package file on macOS
   command: curl "{{ awscli_url }}/{{ awscli_pkg }}" -o "/{{ download_dir }}/{{ awscli_pkg }}"
   ignore_errors: yes

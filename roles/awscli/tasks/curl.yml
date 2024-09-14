@@ -9,12 +9,12 @@
   tags: awscli
 
 - debug:
-    var: curl_installed.stdout
+    var: curl_installed.stat.path
 
 # if curl is not installed, install it on macOS
 - name: Install curl on macOS
   command: brew install curl
-  when: curl_installed.stat.exists == false and ansible_os_family == 'Darwin'
+  when: curl_installed.stat.path != curl_path and ansible_os_family == 'Darwin'
   tags: awscli
 
 # if curl is not installed, install it on Ubuntu
@@ -22,6 +22,6 @@
   apt:
     name: curl
     state: present
-  when: curl_installed.stat.exists == false and ansible_os_family == 'Debian'
+  when: curl_installed.stat.path != curl_path and ansible_os_family == 'Debian'
   become: yes
   tags: awscli
