@@ -1,25 +1,20 @@
 ---
 
-# is curl installed on macOS?
-- name: Check if curl is installed on macOS
-  command: curl --version
+# is curl installed
+- name: Check if curl is installed on macOS or Ubuntu
+  stat:
+    path: "{{ curl_path }}"
   register: curl_installed
   ignore_errors: yes
-  when: ansible_os_family == 'Darwin'
   tags: awscli
 
-# is curl installed on Ubuntu?
-- name: Check if curl is installed on Ubuntu
-  command: curl --version
-  register: curl_installed
-  ignore_errors: yes
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
-  tags: awscli
+- debug:
+    var: curl_installed.stdout
 
 # if curl is not installed, install it on macOS
 - name: Install curl on macOS
   command: brew install curl
-  when: curl_installed.rc != 0 && ansible_os_family == 'Darwin'
+  when: curl_installed.stat.exists == false and ansible_os_family == 'Darwin'
   tags: awscli
 
 # if curl is not installed, install it on Ubuntu
@@ -27,6 +22,6 @@
   apt:
     name: curl
     state: present
-  when: curl_installed.rc != 0 && ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+  when: curl_installed.stat.exists == false and ansible_os_family == 'Debian'
   become: yes
   tags: awscli

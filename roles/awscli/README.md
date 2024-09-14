@@ -1,38 +1,56 @@
-Role Name
+awscli
 =========
 
-A brief description of the role goes here.
+This Ansible role installs and configures the AWS Command Line Interface `awscli`.
+
+From [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+
+> The AWS Command Line Interface (AWS CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- Ansible 2.9+ (or compatible version)
+- Supported Operating Systems:
+  - Debian-based (e.g., Ubuntu 24.04 LTS)
+  - macOS Sonoma
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Package names.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
+* curl
+Testing the Role
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+* Open up this project in a terminal and from the project root run the following: `ansible-playbook -i roles/awscli/tests/inventory roles/awscli/tests/test.yml --ask-become-pass`
+  * enter your sudo password
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+* Positive test / outcome should look something like:
+
+```bash
+PLAY [local] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [awscli : Install awscli] *********************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[g7morris](https://github.com/g7morris)

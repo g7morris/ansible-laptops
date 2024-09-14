@@ -1,5 +1,8 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Test awscli role
+  hosts: localhost
+  become: true
+  become_method: sudo
+  become_user: root
   roles:
-    - roles/awscli
+    - awscli

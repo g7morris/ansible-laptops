@@ -1,2 +1,5 @@
-localhost
+[local]
+localhost ansible_connection=local
 
+[macos]
+localhost ansible_python_interpreter=auto_silent

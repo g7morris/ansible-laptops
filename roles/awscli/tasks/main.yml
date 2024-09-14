@@ -4,6 +4,6 @@
 - include_tasks: curl.yml
 - include_tasks: download.yml
 - include_tasks: extract.yml
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+  when: ansible_os_family == 'Debian'
 - include_tasks: install.yml
 - include_tasks: verify.yml
