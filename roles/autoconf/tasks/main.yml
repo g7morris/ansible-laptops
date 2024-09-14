@@ -6,7 +6,7 @@
   tags: autoconf
 
 - name: Install & verify the software
-  when: not awscli_installed.stat.exists
+  when: not autoconf_installed.stat.exists
   tags: autoconf
   block:
     - name: Install the software
