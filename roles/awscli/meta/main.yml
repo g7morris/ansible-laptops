@@ -2,14 +2,4 @@ galaxy_info:
   author: Gavin Morris
   description: Install Amazon Web Services CLI on Linux and MacOS
   license: MIT
-  min_ansible_version: 2.1
-  platforms:
-    - name: Darwin
-      versions:
-        - MacOS Sonoma
-      dependencies: []
-    - name: Debian
-      versions:
-        - Ubuntu 24.04 LTS
-      dependencies:
-        - role: curl
+  min_ansible_version: "2.1"

@@ -1,2 +1,4 @@
 ---
 # vars file for roles/autoconf
+
+autoconf_path: "/usr/local/bin/autoconf"

@@ -1,0 +1,15 @@
+---
+# tasks file for roles/autoconf
+
+- name: Check if the software is already installed
+  ansible.builtin.include_tasks: check.yml
+  tags: autoconf
+
+- name: Install & verify the software
+  when: not awscli_installed.stat.exists
+  tags: autoconf
+  block:
+    - name: Install the software
+      ansible.builtin.include_tasks: install.yml
+    - name: Verify the install
+      ansible.builtin.include_tasks: verify.yml

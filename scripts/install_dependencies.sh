@@ -64,8 +64,8 @@ install_macos() {
     fi
 
     # Source the .zshrc file to ensure PATH is updated
-    if [ -f "/Users/$(whoami)/.zshrc" ]; then
-        source "/Users/$(whoami)/.zshrc"
+    if [ -f "/home/$(whoami)/.zshrc" ]; then
+        source "/home/$(whoami)/.zshrc"
     fi
 
     # Verify if pre-commit is in PATH
@@ -78,7 +78,12 @@ install_macos() {
     # Add ansible-dev-tools which includes ansible-lint for pre-commit linting using pipx to avoid conflicts
     pipx install ansible-dev-tools
     pipx ensurepath
-    
+
+    # Add ansible-dev-tools binary directory to PATH in .zshrc if not already present
+    if ! grep -q 'export PATH="$HOME/.local/pipx/venvs/ansible-dev-tools/bin:$PATH"' "$HOME/.zshrc"; then
+        echo 'export PATH="$HOME/.local/pipx/venvs/ansible-dev-tools/bin:$PATH"' >> "$HOME/.zshrc"
+    fi
+
     # Source the .zshrc file to ensure PATH is updated
     if [ -f "/Users/$(whoami)/.zshrc" ]; then
         source "/Users/$(whoami)/.zshrc"
@@ -89,11 +94,28 @@ install_macos() {
         echo "ansible-lint is not in the PATH after installation. Please check your shell configuration."
         exit 1
     fi
-    echo "ansible-dev-tools installed successfully."
+    echo "Verified ansible-dev-tools installed successfully."
+
+    # Ensure Git is installed
+    if ! command -v git &> /dev/null; then
+        echo "Git is not installed. Please install Git and try again."
+        exit 1
+    fi
+
+    # Ensure the script is run in a Git repository
+    if ! git rev-parse --is-inside-work-tree &> /dev/null; then
+        echo "This script must be run within a Git repository."
+        exit 1
+    fi
 
     # Install the pre-commit hooks
-    pre-commit install
-    echo "pre-commit hooks installed successfully."
+    cd ../ && pre-commit install --config ../.pre-commit-config.yaml
+    if [ $? -eq 0 ]; then
+        echo "Verified pre-commit hooks installed successfully."
+    else
+        echo "Failed to install pre-commit hooks. Check the log at /Users/$(whoami)/.cache/pre-commit/pre-commit.log"
+    exit 1
+    fi
 }
 
 # Install dependencies on Ubuntu
@@ -111,7 +133,7 @@ install_ubuntu() {
     sudo apt-add-repository --yes --update ppa:ansible/ansible
     sudo apt install -y ansible
     echo "Ansible installed successfully."
-    
+
     # Add pre-commit using pipx to avoid conflicts
     pipx install pre-commit
     pipx ensurepath
@@ -136,10 +158,15 @@ install_ubuntu() {
     # Add ansible-dev-tools which includes ansible-lint for pre-commit linting using pipx to avoid conflicts
     pipx install ansible-dev-tools
     pipx ensurepath
-    
+
+    # Add ansible-dev-tools binary directory to PATH in .zshrc if not already present
+    if ! grep -q 'export PATH="$HOME/.local/pipx/venvs/ansible-dev-tools/bin:$PATH"' "$HOME/.zshrc"; then
+        echo 'export PATH="$HOME/.local/pipx/venvs/ansible-dev-tools/bin:$PATH"' >> "$HOME/.zshrc"
+    fi
+
     # Source the .zshrc file to ensure PATH is updated
-    if [ -f "/home/$(whoami)/.zshrc" ]; then
-        source "/home/$(whoami)/.zshrc"
+    if [ -f "/Users/$(whoami)/.zshrc" ]; then
+        source "/Users/$(whoami)/.zshrc"
     fi
 
     # Verify if ansible-lint is in PATH
@@ -147,11 +174,11 @@ install_ubuntu() {
         echo "ansible-lint is not in the PATH after installation. Please check your shell configuration."
         exit 1
     fi
-    echo "ansible-dev-tools installed successfully."
+    echo "Verified ansible-dev-tools installed successfully."
 
     # Install the pre-commit hooks
-    pre-commit install
-    echo "pre-commit hooks installed successfully."
+    pre-commit install --config ../.pre-commit-config.yaml
+    echo "Verified pre-commit hooks installed successfully."
 }
 
 # Install dependencies based on detected OS

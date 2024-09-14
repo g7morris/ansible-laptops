@@ -2,15 +2,4 @@ galaxy_info:
   author: Gavin Morris
   description: Install autoconf package on Linux and MacOS
   license: MIT
-  min_ansible_version: 2.1
-  platforms:
-    - name: Darwin
-      versions:
-        - MacOS Sonoma
-      dependencies: []
-      # No role dependency for Xcode Command Line Tools since it's handled manually
-    - name: Debian
-      versions:
-        - Ubuntu 24.04 LTS
-      dependencies:
-        - role: build-essential
+  min_ansible_version: "2.1"

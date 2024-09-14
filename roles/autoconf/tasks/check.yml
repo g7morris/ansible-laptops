@@ -1,0 +1,13 @@
+---
+# tasks file for roles/autoconf
+
+# is autoconf installed is installed PRIOR to installing and if yes skip installation
+- name: Check if autoconf is already installed?
+  ansible.builtin.stat:
+    path: "{{ autoconf_path }}"
+  register: autoconf_installed
+  failed_when: false
+
+- name: Debug autoconf_installed
+  ansible.builtin.debug:
+    var: autoconf_installed.stat.exists
