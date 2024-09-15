@@ -1,0 +1,28 @@
+---
+# tasks file for roles/dockutil
+
+- name: Get install path
+  ansible.builtin.command:
+    cmd: "brew list dockutil"
+  register: dockutil_path
+  changed_when: false
+  failed_when: false
+
+- name: Display install path
+  ansible.builtin.debug:
+    var: dockutil_path.stdout
+  changed_when: false
+  failed_when: false
+
+- name: Get version
+  ansible.builtin.command:
+    cmd: "brew info dockutil"
+  register: dockutil_version
+  changed_when: false
+  failed_when: false
+
+- name: Display version
+  ansible.builtin.debug:
+    var: dockutil_version.stdout
+  changed_when: false
+  failed_when: false

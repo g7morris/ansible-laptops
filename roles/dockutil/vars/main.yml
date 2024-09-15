@@ -1,0 +1,63 @@
+---
+# vars file for roles/dockutil
+
+# Installation path for dockutil
+dockutil_path: "/opt/homebrew/bin/dockutil"
+
+# List of applications and their positions within the Dock for looping in the add.yml task.
+# Using this structure avoids having multiple tasks for each app.
+# Note: Finder is always the first item in the Dock, so position 1 is not available.
+dockutil_items_add:
+  - name: 'Launchpad'
+    position: 2
+  - name: 'Misson Control'
+    position: 3
+  - name: 'System Preferences'
+    position: 4
+  - name: 'Activity Monitor'
+    position: 5
+  - name: 'Disk Utility'
+    position: 6
+  - name: 'Calendar'
+    position: 7
+  - name: 'Calculator'
+    position: 8
+  - name: '1Password'
+    position: 9
+  - name: 'Preview'
+    position: 10
+  - name: 'TextEdit'
+    position: 11
+  - name: 'Microsoft Visual Studio Code'
+    position: 12
+  - name: 'Obsidian'
+    position: 13
+  - name: 'iTerm'
+    position: 14
+  - name: 'Spotify'
+    position: 15
+  - name: 'Firefox'
+    position: 16
+  - name: 'Google Chrome'
+    position: 17
+  - name: 'Safari'
+    position: 18
+  - name: 'Messages'
+    position: 19
+  - name: 'Signal'
+    position: 20
+  - name: 'Zoom'
+    position: 21
+
+dockutil_items_remove:
+  - name: 'App Store'
+  - name: 'Freeform'
+  - name: 'Keynote'
+  - name: 'Mail'
+  - name: 'Maps'
+  - name: 'Music'
+  - name: 'News'
+  - name: 'Numbers'
+  - name: 'Pages'
+  - name: 'Podcasts'
+  - name: 'TV'

@@ -1,0 +1,15 @@
+---
+# tasks file for roles/dockutil
+
+# is dockutil installed is installed PRIOR to installing and if yes skip installation
+- name: Check if dockutil is already installed?
+  ansible.builtin.stat:
+    path: "{{ dockutil_path }}"
+  register: dockutil_installed
+  failed_when: false
+  changed_when: false
+
+- name: Debug dockutil_installed
+  ansible.builtin.debug:
+    var: dockutil_installed.stat.exists
+  changed_when: false

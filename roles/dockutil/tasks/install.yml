@@ -1,0 +1,10 @@
+---
+# tasks file for roles/dockutil
+
+- name: Install dockutil on macOS using Homebrew
+  community.general.homebrew:
+    name: dockutil
+    state: present
+    update_homebrew: true
+  when: ansible_os_family == 'Darwin' and ansible_facts.packages['dockutil'] is not defined
+  become: false

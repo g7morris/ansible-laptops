@@ -1,0 +1,20 @@
+---
+# tasks file for roles/dockutil
+
+- name: Check if the software is already installed
+  when: ansible_os_family == 'Darwin'
+  ansible.builtin.include_tasks: check.yml
+  tags: dockutil
+
+- name: Download, extract, install & verify the software
+  when: ansible_os_family == 'Darwin' and not dockutil_installed.stat.exists
+  tags: dockutil
+  block:
+    - name: Install the software
+      ansible.builtin.include_tasks: install.yml
+    - name: Remove Dock items
+      ansible.builtin.include_tasks: remove.yml
+    - name: Add Dock items
+      ansible.builtin.include_tasks: add.yml
+    - name: Verify the install
+      ansible.builtin.include_tasks: verify.yml

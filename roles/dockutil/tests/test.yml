@@ -1,11 +1,14 @@
 ---
-# test file for roles/autoconf
-- name: Test autoconf role
+# test file for roles/dockutil
+
+- name: Test dockutil role
   hosts: localhost
+
   become: true
   become_method: ansible.builtin.sudo
+
   vars_files:
     - ../../../group_vars/all.yml
     - ../vars/main.yml
   roles:
-    - autoconf
+    - dockutil

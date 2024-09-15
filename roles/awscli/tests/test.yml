@@ -1,4 +1,5 @@
 ---
+# test file for roles/awscli
 - name: Test awscli role
   hosts: localhost
 

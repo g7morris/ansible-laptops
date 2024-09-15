@@ -1,0 +1,11 @@
+---
+# tasks file for roles/dockutil
+
+# Remove existing dock items
+- name: Remove items from the Dock
+  ansible.builtin.shell: |
+    /opt/homebrew/bin/dockutil --remove {{ item.name }} --no-restart
+    loop: "{{ dockutil_items_remove }}"
+    ignore_errors: true
+    notify: Restart the Dock
+  changed_when: true
