@@ -1,5 +1,5 @@
 ---
-
+# test file for roles/amethyst
 - name: Test amethyst role
   hosts: localhost
 

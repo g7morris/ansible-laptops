@@ -1,7 +1,7 @@
 ---
 # tasks file for roles/amethyst
 
-- name: Install amethyst on macOS
+- name: Install amethyst on macOS using Homebrew
   community.general.homebrew:
     name: amethyst
     state: present

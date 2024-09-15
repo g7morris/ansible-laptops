@@ -1,44 +1,46 @@
 ---
-# setup.yml
+# Playbook - setup.yml
+# This playbook is used to provision either a MacOS or Ubuntu laptop with the following software below used on a daily basis.
+# The playbook is idempotent and can be run multiple times without any issues as there are role check tasks
+# to avoid overwriting existing configurations or installations.
 
 - name: Setup, install and configure all the things for the laptop
   hosts: localhost
   connection: local
   become: true
   become_method: ansible.builtin.sudo
-  gather_facts: false
+  gather_facts: true
 
   roles:
-  # macOS software
-    - amethyst
-    # - dockutil
-    # - handbrake
-    # - iterm2
-  # Ubuntu Software
-    # - build-essential
-    # - popos-shell
-    # - zsh
-  # Shared software for both platforms
-    - autoconf
-    - awscli
-    # - docker
-    # - docker-compose
-    # - firefox
-    # - go
-    # - google chrome
-    # - gpg
-    # - iperf
-    # - nmap
-    # - ohmyzsh
-    # - powerlevel10k
-    # - pv
-    # - pyYAML
-    # - Signal
-    # - sqlite
-    # - terraform
-    # - vscode
-    # - vscode_extensions
-    # - vlc
-    # - wget
-    # - yamllint
-    # - zsh-history-substring-search
+    - { role: autoconf }
+    - { role: awscli }
+    # - { role: docker }
+    # - { role: docker-compose }
+    # - { role: firefox }
+    # - { role: go }
+    # - { role: google chrome }
+    # - { role: gpg }
+    # - { role: iperf }
+    # - { role: nmap }
+    # - { role: ohmyzsh }
+    # - { role: powerlevel10k }
+    # - { role: pv }
+    # - { role: pyYAML }
+    # - { role: signal }
+    # - { role: sqlite }
+    # - { role: terraform }
+    # - { role: vscode }
+    # - { role: vscode_extensions }
+    # - { role: vlc }
+    # - { role: wget }
+    # - { role: yamllint }
+    # - { role: zsh-history-substring-search }
+    # Ubuntu only software roles
+    # - { role: build-essential, when: "ansible_facts['os_family'] == 'Debian'" }
+    # - { role: popos-shell, when: "ansible_facts['os_family'] == 'Debian'" }
+    # - { role: zsh, when: "ansible_facts['os_family'] == 'Debian'" }
+    # MacOS only software roles
+    - { role: amethyst, when: "ansible_facts['os_family'] == 'Darwin'" }
+    # - { role: dockutil, when: "ansible_facts['os_family'] == 'Darwin'" }
+    # - { role: handbrake, when: "ansible_facts['os_family'] == 'Darwin'" }
+    # - { role: iterm2, when: "ansible_facts['os_family'] == 'Darwin'" }

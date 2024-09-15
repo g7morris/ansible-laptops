@@ -1,0 +1,12 @@
+---
+# tasks file for roles/dockutil
+
+# Add and move applications as listed in (dockutil/var/main.yml) to specific positions on the Dock
+# If no position is listed in the vars file, the default position is 999 (last position) as added.
+- name: Add and move applications
+  ansible.builtin.shell: |
+    /opt/homebrew/bin/dockutil --add {{ item.name }} --position {{ item.position | default(999) }} --allhomes --no-restart
+    loop: "{{ dockutil_items_add }}"
+    ignore_errors: true
+    notify: Restart the Dock
+  changed_when: true
