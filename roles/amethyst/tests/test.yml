@@ -1,0 +1,13 @@
+---
+
+- name: Test amethyst role
+  hosts: localhost
+
+  become: true
+  become_method: ansible.builtin.sudo
+
+  vars_files:
+    - ../../../group_vars/all.yml
+    - ../vars/main.yml
+  roles:
+    - amethyst

@@ -27,7 +27,6 @@ _Installed on both macOS and Ubuntu_
 * [go](https://go.dev/)
 * [Google Chrome](https://www.google.com/chrome/)
 * [gpg](https://gnupg.org/)
-* [Handbrake](https://handbrake.fr/)
 * [iperf](https://iperf.fr/)
 * [nmap](https://nmap.org/)
 * [Oh My Zsh](https://ohmyz.sh/)
@@ -62,6 +61,7 @@ _Installed only on macOS_
 * [Docker for Mac](https://docs.docker.com/desktop/install/mac-install/) (_Docker_)
 * [dockutil](https://github.com/geerlingguy/ansible-collection-mac/tree/master/roles/dock)
   * _Using geerlingguy Ansible module_
+* [Handbrake](https://handbrake.fr/)
 * [Homebrew](https://brew.sh/)
 * [iTerm2](https://iterm2.com/)
 * [Xcode Command Line Tools](https://mac.install.guide/commandlinetools/) - _tools for software developers that run on the command line, in the Terminal application._

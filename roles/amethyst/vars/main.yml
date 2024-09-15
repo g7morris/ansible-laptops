@@ -1,0 +1,5 @@
+---
+# vars file for roles/amethyst
+
+# Installation path for AWS CLI
+amethyst_path: "/usr/local/Caskroom/amethyst"
