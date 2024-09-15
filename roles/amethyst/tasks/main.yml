@@ -1,0 +1,15 @@
+---
+# tasks file for roles/amethyst
+
+- name: Check if the software is already installed
+  ansible.builtin.include_tasks: check.yml
+  tags: amethyst
+
+- name: Download, extract, install & verify the software
+  when: not amethyst_installed.stat.exists
+  tags: amethyst
+  block:
+    - name: Install the software
+      ansible.builtin.include_tasks: install.yml
+    - name: Verify the install
+      ansible.builtin.include_tasks: verify.yml

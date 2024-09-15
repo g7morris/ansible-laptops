@@ -9,5 +9,36 @@
   gather_facts: false
 
   roles:
+  # macOS software
+    - amethyst
+    # - dockutil
+    # - handbrake
+    # - iterm2
+  # Ubuntu Software
+    # - build-essential
+    # - popos-shell
+    # - zsh
+  # Shared software for both platforms
     - autoconf
     - awscli
+    # - docker
+    # - docker-compose
+    # - firefox
+    # - go
+    # - google chrome
+    # - gpg
+    # - iperf
+    # - nmap
+    # - ohmyzsh
+    # - powerlevel10k
+    # - pv
+    # - pyYAML
+    # - Signal
+    # - sqlite
+    # - terraform
+    # - vscode
+    # - vscode_extensions
+    # - vlc
+    # - wget
+    # - yamllint
+    # - zsh-history-substring-search

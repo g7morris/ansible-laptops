@@ -1,0 +1,10 @@
+---
+# tasks file for roles/amethyst
+
+- name: Install amethyst on macOS
+  community.general.homebrew:
+    name: amethyst
+    state: present
+    update_homebrew: true
+  when: ansible_os_family == 'Darwin' and ansible_facts.packages['amethyst'] is not defined
+  become: false

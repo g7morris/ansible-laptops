@@ -29,20 +29,7 @@ Testing the Role
 * Open up this project in a terminal and from the project root run the following: `ansible-playbook -i roles/awscli/tests/inventory roles/awscli/tests/test.yml --ask-become-pass`
   * enter your sudo password
 
-* Positive test / outcome should look something like:
-
-```bash
-PLAY [local] ******************************************************************
-
-TASK [Gathering Facts] *********************************************************
-ok: [localhost]
-
-TASK [awscli : Install awscli] *********************************************
-changed: [localhost]
-
-PLAY RECAP *********************************************************************
-localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-```
+* The test should run to completion without failure.
 
 License
 -------

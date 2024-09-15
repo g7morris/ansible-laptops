@@ -1,28 +1,28 @@
 ---
-# tasks file for roles/awscli
+# tasks file for roles/amethyst
 
 - name: Get install path
   ansible.builtin.command:
-    cmd: "which aws"
-  register: awscli_path
+    cmd: "brew list amethyst"
+  register: amethyst_path
   changed_when: false
   failed_when: false
 
 - name: Display install path
   ansible.builtin.debug:
-    var: awscli_path.stdout
+    var: amethyst_path.stdout
   changed_when: false
   failed_when: false
 
 - name: Get version
   ansible.builtin.command:
-    cmd: "aws --version"
-  register: awscli_version
+    cmd: "brew info amethyst"
+  register: amethyst_version
   changed_when: false
   failed_when: false
 
 - name: Display version
   ansible.builtin.debug:
-    var: awscli_version.stdout
+    var: amethyst_version.stdout
   changed_when: false
   failed_when: false
