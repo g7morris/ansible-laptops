@@ -36,11 +36,11 @@
     # - { role: yamllint }
     # - { role: zsh-history-substring-search }
     # Ubuntu only software roles
-    # - { role: build-essential, when: ansible_facts['os_family'] == "Debian"}
-    # - { role: popos-shell, when: ansible_facts['os_family'] == "Debian"}
-    # - { role: zsh, when: ansible_facts['os_family'] == "Debian"}
+    # - { role: build-essential, when: "ansible_facts['os_family'] == 'Debian'" }
+    # - { role: popos-shell, when: "ansible_facts['os_family'] == 'Debian'" }
+    # - { role: zsh, when: "ansible_facts['os_family'] == 'Debian'" }
     # MacOS only software roles
     - { role: amethyst, when: "ansible_facts['os_family'] == 'Darwin'" }
-    # - { role: dockutil, when: ansible_facts['os_family'] == "Darwin"}
-    # - { role: handbrake, when: ansible_facts['os_family'] == "Darwin"}
-    # - { role: iterm2, when: ansible_facts['os_family'] == "Darwin"}
+    # - { role: dockutil, when: "ansible_facts['os_family'] == 'Darwin'" }
+    # - { role: handbrake, when: "ansible_facts['os_family'] == 'Darwin'" }
+    # - { role: iterm2, when: "ansible_facts['os_family'] == 'Darwin'" }
